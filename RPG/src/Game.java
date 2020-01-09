@@ -1,4 +1,7 @@
-public class Game {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Game{
     private Parser parser;
     private Room currentRoom;
 
@@ -34,17 +37,25 @@ public class Game {
         battlefield.setExits("west", courtyard);
 
         avalon.setExits("north", battlefield);
+        throneRoom.addObject("Throne Room Key","A key with markings that look like a crown");
+        throneRoom.addObject("Throne Room Ball","A Ball with markings that look like a crown");
+        ArrayList<Object> objects1 = throneRoom.returnList();
+
+        for (int i = 0; i <throneRoom.returnList().size();i++){
+            System.out.println(throneRoom.returnList().get(i).getObjectName());
+        }
+
+
 
         currentRoom = courtyard;  // start game outside
-
     }
 
     public void createObjects()
     {
-        ObjectInRoom throneKey, excalibur, cup, object4, object5, object6;
-        throneKey = new ObjectInRoom("A Key", "A key with markings that look like a crown");
-        excalibur = new ObjectInRoom("A Sword", "A sword that looks to have been stuck in stone for a long time");
-        cup = new ObjectInRoom("A cup", "A mysterious cup surrounded by a strong feeling of power");
+        Object throneKey, excalibur, cup, object4, object5, object6;
+        throneKey = new Object("A Key", "A key with markings that look like a crown");
+        excalibur = new Object("A Sword", "A sword that looks to have been stuck in stone for a long time");
+        cup = new Object("A cup", "A mysterious cup surrounded by a strong feeling of power");
     }
 
     public void play() {

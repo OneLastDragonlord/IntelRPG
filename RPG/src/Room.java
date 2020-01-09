@@ -1,14 +1,14 @@
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class Room {
     private String description;
     private HashMap<String, Room> exits;
+    private ArrayList<Object> objects;
 
     public Room(String description) {
         this.description = description;
         this.exits = new HashMap();
+        this.objects = new ArrayList<>();
     }
 
     public void setExits(String direction, Room neighbor) {
@@ -39,4 +39,12 @@ public class Room {
 
         return returnString;
     }
+    public void addObject(String objectName,String objectDescription){
+        Object object1 = new Object(objectName,objectDescription);
+        objects.add(object1);
+    }
+    public ArrayList<Object> returnList(){
+        return objects;
+    }
+
 }
